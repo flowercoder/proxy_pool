@@ -28,16 +28,16 @@ BANNER = r"""
 VERSION = "2.4.0"
 
 # ############### server config ###############
-HOST = "0.0.0.0"
+HOST = "127.0.0.1"
 
-PORT = 5010
+PORT = 5555
 
 # ############### database config ###################
 # db connection uri
 # example:
 #      Redis: redis://:password@ip:port/db
 #      Ssdb:  ssdb://:password@ip:port
-DB_CONN = 'redis://:pwd@127.0.0.1:6379/0'
+DB_CONN = 'redis://:@127.0.0.1:6379/0'
 
 # proxy table name
 TABLE_NAME = 'use_proxy'
@@ -54,20 +54,32 @@ PROXY_FETCHER = [
     "freeProxy07",
     "freeProxy08",
     "freeProxy09",
-    "freeProxy10"
+    "freeProxy10",
+    "freeProxy11",
+    "freeProxy12",
+    "freeProxy13",
+    "freeProxy14",
+    "freeProxy15",
+    "freeProxy16",
+    "freeProxy17",
+    "freeProxy18",
+    "freeProxy19",
+    "freeProxy20",
+    "freeProxy21",
+    "freeProxy22",
 ]
 
 # ############# proxy validator #################
 # 代理验证目标网站
 HTTP_URL = "http://httpbin.org"
 
-HTTPS_URL = "https://www.qq.com"
+HTTPS_URL = "https://httpbin.org/get"
 
 # 代理验证时超时时间
-VERIFY_TIMEOUT = 10
+VERIFY_TIMEOUT = 8
 
 # 近PROXY_CHECK_COUNT次校验中允许的最大失败次数,超过则剔除代理
-MAX_FAIL_COUNT = 0
+MAX_FAIL_COUNT = 5
 
 # 近PROXY_CHECK_COUNT次校验中允许的最大失败率,超过则剔除代理
 # MAX_FAIL_RATE = 0.1

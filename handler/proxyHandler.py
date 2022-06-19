@@ -69,6 +69,14 @@ class ProxyHandler(object):
         proxies = self.db.getAll(https)
         return [Proxy.createFromJson(_) for _ in proxies]
 
+    def getallhttps(self, https=False):
+        """
+        get all proxy from pool as Proxy list
+        :return:
+        """
+        proxies = self.db.getallhttps(https)
+        return proxies
+
     def exists(self, proxy):
         """
         check proxy exists

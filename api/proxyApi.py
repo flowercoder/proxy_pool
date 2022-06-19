@@ -75,6 +75,12 @@ def refresh():
     return 'success'
 
 
+@app.route('/allhttps')
+def getallhttps():
+    # https = request.args.get("type", "").lower() == 'https'
+    proxies = proxy_handler.getallhttps()
+    return proxies
+
 @app.route('/all/')
 def getAll():
     https = request.args.get("type", "").lower() == 'https'

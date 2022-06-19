@@ -115,6 +115,23 @@ class RedisClient(object):
         else:
             return items
 
+
+    def getallhttps(self, https):
+        """
+        字典形式返回所有代理, 使用changeTable指定hash name
+        :return:
+        """
+        items = self.__conn.hvals(self.name)
+        firststep = list(filter(lambda x: json.loads(x).get("https"), items))
+        data = []
+        for i in range(len(firststep)):
+            secondstep = json.loads(firststep[i])
+            if secondstep.get("https") == True:
+                thirdstep = secondstep.get("proxy")
+                data.append(thirdstep)
+        return '\n'.join(data)
+
+
     def clear(self):
         """
         清空所有代理, 使用changeTable指定hash name
@@ -153,3 +170,8 @@ class RedisClient(object):
             return e
 
 
+# if __name__ == '__main__':
+#     temp = "{\"proxy\": \"122.235.98.69:7890\", \"https\": true, \"fail_count\": 0, \"region\": \"\", \"anonymous\": \"\", \"source\": \"freeProxy16\", \"check_count\": 5, \"last_status\": true, \"last_time\": \"2022-06-19 13:44:44\"}"
+#     temp2 = json.loads(temp)
+#     print(temp2.get("https"))
+#     print(json.loads(temp).get("proxy"))

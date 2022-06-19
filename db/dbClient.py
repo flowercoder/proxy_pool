@@ -107,6 +107,9 @@ class DbClient(withMetaclass(Singleton)):
     def getAll(self, https):
         return self.client.getAll(https)
 
+    def getallhttps(self, https):
+        return self.client.getallhttps(https)
+
     def clear(self):
         return self.client.clear()
 
